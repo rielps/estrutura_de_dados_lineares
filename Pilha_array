@@ -1,0 +1,54 @@
+// Classe PilhaArray
+public class PilhaArray {
+    private int[] pilha; // Array que armazenará os elementos da pilha
+    private int topo;    // Índice do topo da pilha
+
+    // Construtor da PilhaArray
+    public PilhaArray(int capacidade) {
+        pilha = new int[capacidade];
+        topo = -1; // Inicialmente, a pilha está vazia
+    }
+
+    // Método para empilhar (push) um elemento
+    public void push(int elemento) {
+        if (topo == pilha.length - 1) {
+            System.out.println("Pilha cheia!"); // Verifica se a pilha está cheia
+        } else {
+            topo++;
+            pilha[topo] = elemento; // Adiciona o elemento ao topo
+        }
+    }
+
+    // Método para desempilhar (pop) um elemento
+    public int pop() {
+        if (topo == -1) {
+            System.out.println("Pilha vazia!"); // Verifica se a pilha está vazia
+            return -1; // Valor de erro
+        } else {
+            int elemento = pilha[topo];
+            topo--;
+            return elemento; // Remove e retorna o elemento do topo
+        }
+    }
+
+    // Método para verificar se a pilha está vazia
+    public boolean isEmpty() {
+        return topo == -1;
+    }
+
+    // Método para esvaziar a pilha
+    public void empty() {
+        topo = -1; // Simplesmente "descarta" todos os elementos
+        System.out.println("Pilha esvaziada!"); // Confirma a operação
+    }
+
+    // Método para visualizar o topo da pilha (sem remover)
+    public int topo() {
+        if (topo == -1) {
+            System.out.println("Pilha vazia!"); // Verifica se a pilha está vazia
+            return -1; // Valor de erro
+        } else {
+            return pilha[topo]; // Retorna o elemento no topo
+        }
+    }
+}
