@@ -1,0 +1,82 @@
+public class PilhasColoridas {
+    private int[] array; // Array que armazena os elementos das pilhas
+    private int topoVermelha; // Índice do topo da pilha vermelha
+    private int topoPreta;    // Índice do topo da pilha preta
+
+    // Construtor
+    public PilhasColoridas(int capacidade) {
+        array = new int[capacidade];
+        topoVermelha = -1; // Inicializa a pilha vermelha vazia
+        topoPreta = capacidade; // Inicializa a pilha preta no final do array
+    }
+
+    // Método para empilhar um elemento na pilha vermelha
+    public void pushVermelha(int elemento) {
+        if (topoVermelha + 1 == topoPreta) {
+            System.out.println("Pilha vermelha cheia!");
+            return; // Não há espaço na pilha vermelha
+        }
+        topoVermelha++;
+        array[topoVermelha] = elemento; // Adiciona o elemento no topo da pilha vermelha
+    }
+
+    // Método para empilhar um elemento na pilha preta
+    public void pushPreta(int elemento) {
+        if (topoPreta - 1 == topoVermelha) {
+            System.out.println("Pilha preta cheia!");
+            return; // Não há espaço na pilha preta
+        }
+        topoPreta--;
+        array[topoPreta] = elemento; // Adiciona o elemento no topo da pilha preta
+    }
+
+    // Método para desempilhar um elemento da pilha vermelha
+    public int popVermelha() {
+        if (topoVermelha == -1) {
+            System.out.println("Pilha vermelha vazia!");
+            return -1; // Valor de erro
+        }
+        int elemento = array[topoVermelha];
+        topoVermelha--; // Remove o elemento do topo da pilha vermelha
+        return elemento;
+    }
+
+    // Método para desempilhar um elemento da pilha preta
+    public int popPreta() {
+        if (topoPreta == array.length) {
+            System.out.println("Pilha preta vazia!");
+            return -1; // Valor de erro
+        }
+        int elemento = array[topoPreta];
+        topoPreta++; // Remove o elemento do topo da pilha preta
+        return elemento;
+    }
+
+    // Método para verificar se a pilha vermelha está vazia
+    public boolean isVermelhaVazia() {
+        return topoVermelha == -1;
+    }
+
+    // Método para verificar se a pilha preta está vazia
+    public boolean isPretaVazia() {
+        return topoPreta == array.length;
+    }
+
+    // Método para visualizar o topo da pilha vermelha
+    public int topoVermelha() {
+        if (topoVermelha == -1) {
+            System.out.println("Pilha vermelha vazia!");
+            return -1; // Valor de erro
+        }
+        return array[topoVermelha]; // Retorna o elemento do topo da pilha vermelha
+    }
+
+    // Método para visualizar o topo da pilha preta
+    public int topoPreta() {
+        if (topoPreta == array.length) {
+            System.out.println("Pilha preta vazia!");
+            return -1; // Valor de erro
+        }
+        return array[topoPreta]; // Retorna o elemento do topo da pilha preta
+    }
+}
