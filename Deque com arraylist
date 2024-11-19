@@ -7,46 +7,46 @@ public class DequeArrayList<T> {
         lista = new ArrayList<>();
     }
 
-    public boolean isEmpty() {
+    public boolean estaVazia() {
         return lista.isEmpty();
     }
 
-    public void addLast(T elemento) {
+    public void inserirFinal(T elemento) {
         lista.add(elemento);
     }
 
-    public void addFirst(T elemento) {
+    public void inserirInicio(T elemento) {
         lista.add(0, elemento);
     }
-    public T removeFirst() {
+    public T removerInicio() {
         if (isEmpty()) {
             throw new IllegalStateException("Deque está vazio");
         }
         return lista.remove(0);
     }
 
-    public T removeLast() {
+    public T removerFim() {
         if (isEmpty()) {
             throw new IllegalStateException("Deque está vazio");
         }
         return lista.remove(lista.size() - 1);
     }
 
-    public T peekFirst() {
+    public T primeiro() {
         if (isEmpty()) {
             throw new IllegalStateException("Deque está vazio");
         }
         return lista.get(0);
     }
 
-    public T peekLast() {
+    public T ultimo() {
         if (isEmpty()) {
             throw new IllegalStateException("Deque está vazio");
         }
         return lista.get(lista.size() - 1);
     }
 
-    public int size() {
+    public int Tamanho() {
         return lista.size();
     }
 
